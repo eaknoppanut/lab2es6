@@ -1,15 +1,15 @@
 $(function(){
-    var $write = $('#write'),
+    let $write = $('#write'),
         shift = false,
         capslock = false;
      
     $('#keyboard li').click(function(){
-        var $this = $(this),
+        let $this = $(this),
             character = $this.html(); 
           
         // Delete
         if ($this.hasClass('delete')) {
-            var html = $write.html();
+            let html = $write.html();
              
             $write.html(html.substr(0, html.length - 1));
             return false;
