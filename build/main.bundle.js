@@ -7,17 +7,7 @@ $(function () {
 
     $('#keyboard li').click(function () {
         var $this = $(this),
-            character = $this.html(); // If it's a lowercase letter, nothing happens to this variable
-
-        // Shift keys
-        if ($this.hasClass('left-shift') || $this.hasClass('right-shift')) {
-            $('.letter').toggleClass('uppercase');
-            $('.symbol span').toggle();
-
-            shift = shift === true ? false : true;
-            capslock = false;
-            return false;
-        }
+            character = $this.html();
 
         // Delete
         if ($this.hasClass('delete')) {
@@ -32,14 +22,6 @@ $(function () {
         if ($this.hasClass('space')) character = ' ';
         if ($this.hasClass('tab')) character = "\t";
         if ($this.hasClass('return')) character = "\n";
-
-        // Remove shift once a key is clicked.
-        if (shift === true) {
-            $('.symbol span').toggle();
-            if (capslock === false) $('.letter').toggleClass('uppercase');
-
-            shift = false;
-        }
 
         // Add the character
         $write.html($write.html() + character);
